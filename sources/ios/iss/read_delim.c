@@ -14,6 +14,7 @@ char *iss_read_line(iss_t *iss)
 	ssize_t read = getline(&line, &size, iss->fp);
 
 	if (read < 0) {
+		fprintf(stderr, "iss_read_line() failed\n");
 		free(line);
 		return (NULL);
 	}
@@ -28,6 +29,7 @@ char *iss_read_delim(iss_t *iss, int delim)
 	ssize_t read = getdelim(&line, &size, delim, iss->fp);
 
 	if (read < 0) {
+		fprintf(stderr, "iss_read_delim() failed\n");
 		free(line);
 		return (NULL);
 	}

@@ -22,7 +22,7 @@ int64_t iss_read_i64(iss_t *iss)
 {
 	int64_t value = 0;
 
-	if (fscanf(iss->fp, "%ld", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNi64, &value) < 1) {
 		fprintf(stderr, "iss_read_i64() failed\n");
 		return (0);
 	}
@@ -44,7 +44,7 @@ uint64_t iss_read_u64(iss_t *iss)
 {
 	uint64_t value = 0;
 
-	if (fscanf(iss->fp, "%lu", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNu64, &value) < 1) {
 		fprintf(stderr, "iss_read_u64() failed\n");
 		return (0);
 	}

@@ -22,7 +22,7 @@ int32_t iss_read_i32(iss_t *iss)
 {
 	int32_t value = 0;
 
-	if (fscanf(iss->fp, "%d", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNi32, &value) < 1) {
 		fprintf(stderr, "iss_read_i32() failed\n");
 		return (0);
 	}
@@ -44,7 +44,7 @@ uint32_t iss_read_u32(iss_t *iss)
 {
 	uint32_t value = 0;
 
-	if (fscanf(iss->fp, "%u", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNu32, &value) < 1) {
 		fprintf(stderr, "iss_read_u32() failed\n");
 		return (0);
 	}

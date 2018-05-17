@@ -44,14 +44,27 @@ FS	=	fs/file_get_contents.c		\
 IOS	=	ios/iss/ignore.c		\
 		ios/iss/is_good.c		\
 		ios/iss/iss.c			\
+		ios/iss/offset.c		\
+		ios/iss/read.c			\
 		ios/iss/read_bool.c		\
 		ios/iss/read_char.c		\
 		ios/iss/read_delim.c		\
 		ios/iss/read_float.c		\
 		ios/iss/read_int.c		\
-		ios/iss/read_llong.c		\
 		ios/iss/read_long.c		\
-		ios/iss/read_short.c
+		ios/iss/read_short.c		\
+		ios/iss/read_size.c		\
+		ios/oss/offset.c		\
+		ios/oss/oss.c			\
+		ios/oss/str.c			\
+		ios/oss/write.c			\
+		ios/oss/write_bool.c		\
+		ios/oss/write_char.c		\
+		ios/oss/write_float.c		\
+		ios/oss/write_int.c		\
+		ios/oss/write_long.c		\
+		ios/oss/write_short.c		\
+		ios/oss/write_size.c
 
 Log	=	log/data.c			\
 		log/file.c			\

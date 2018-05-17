@@ -22,7 +22,7 @@ int16_t iss_read_i16(iss_t *iss)
 {
 	int16_t value = 0;
 
-	if (fscanf(iss->fp, "%hd", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNi16, &value) < 1) {
 		fprintf(stderr, "iss_read_i16() failed\n");
 		return (0);
 	}
@@ -44,7 +44,7 @@ uint16_t iss_read_u16(iss_t *iss)
 {
 	uint16_t value = 0;
 
-	if (fscanf(iss->fp, "%hu", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNu16, &value) < 1) {
 		fprintf(stderr, "iss_read_u16() failed\n");
 		return (0);
 	}

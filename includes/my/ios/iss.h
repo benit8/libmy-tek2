@@ -10,6 +10,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <ctype.h>
+#include <inttypes.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -48,6 +50,8 @@ bool iss_is_good(iss_t *iss);
 /*
 ** Read all kinds of data
 */
+int iss_readf(iss_t *iss, const char *format, ...);
+
 bool iss_read_bool(iss_t *iss);
 int8_t iss_read_i8(iss_t *iss);
 int16_t iss_read_i16(iss_t *iss);
@@ -57,14 +61,8 @@ char iss_read_char(iss_t *iss);
 short iss_read_short(iss_t *iss);
 int iss_read_int(iss_t *iss);
 long iss_read_long(iss_t *iss);
-long long iss_read_llong(iss_t *iss);
 ssize_t iss_read_ssize(iss_t *iss);
-float iss_read_float(iss_t *iss);
-double iss_read_double(iss_t *iss);
 
-/*
-** Read all kinds of unsigned data
-*/
 uint8_t iss_read_u8(iss_t *iss);
 uint16_t iss_read_u16(iss_t *iss);
 uint32_t iss_read_u32(iss_t *iss);
@@ -73,12 +71,15 @@ unsigned char iss_read_uchar(iss_t *iss);
 unsigned short iss_read_ushort(iss_t *iss);
 unsigned int iss_read_uint(iss_t *iss);
 unsigned long iss_read_ulong(iss_t *iss);
-unsigned long long iss_read_ullong(iss_t *iss);
 size_t iss_read_size(iss_t *iss);
+
+float iss_read_float(iss_t *iss);
+double iss_read_double(iss_t *iss);
 
 /*
 ** These functions returns allocated strings that need to be freed by free()
 */
+char *iss_read(iss_t *iss, size_t n);
 char *iss_read_line(iss_t *iss);
 char *iss_read_delim(iss_t *iss, int delim);
 
@@ -87,3 +88,9 @@ char *iss_read_delim(iss_t *iss, int delim);
 ** extracted, or one compares equal to delim
 */
 void iss_ignore(iss_t *iss, size_t n, int c);
+
+/*
+** Offset relative functions
+*/
+long iss_tell(iss_t *iss);
+int iss_seek(iss_t *iss, long offset, int whence);

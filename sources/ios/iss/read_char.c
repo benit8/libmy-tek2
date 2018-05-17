@@ -22,7 +22,7 @@ int8_t iss_read_i8(iss_t *iss)
 {
 	int8_t value = 0;
 
-	if (fscanf(iss->fp, "%c", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNi8, &value) < 1) {
 		fprintf(stderr, "iss_read_i8() failed\n");
 		return (0);
 	}
@@ -44,7 +44,7 @@ uint8_t iss_read_u8(iss_t *iss)
 {
 	uint8_t value = 0;
 
-	if (fscanf(iss->fp, "%hhu", &value) < 1) {
+	if (fscanf(iss->fp, "%" SCNu8, &value) < 1) {
 		fprintf(stderr, "iss_read_u8() failed\n");
 		return (0);
 	}
