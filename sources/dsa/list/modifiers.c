@@ -43,6 +43,14 @@ bool list_insert(list_t *this, size_t pos, void *data)
 	return (false);
 }
 
+static void erase_with(list_t *this, void *(*getter)(list_t *))
+{
+	void *data = getter(this);
+
+	if (this->clean_up)
+		this->clean_up(data);
+}
+
 void list_erase(list_t *this, size_t pos)
 {
 	list_node_t *cur = NULL;
@@ -51,9 +59,9 @@ void list_erase(list_t *this, size_t pos)
 	if ((!this) || (!this->head) || (pos > list_get_size(this)))
 		return;
 	if (pos == 0)
-		list_pop_front(this);
+		erase_with(this, list_pop_front);
 	else if (pos == list_get_size(this) - 1)
-		list_pop_back(this);
+		erase_with(this, list_pop_back);
 	else {
 		cur = this->head;
 		for (size_t i = 0; i < pos - 1; ++i, cur = cur->next);
