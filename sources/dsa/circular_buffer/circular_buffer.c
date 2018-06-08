@@ -14,13 +14,13 @@ circular_buffer_t *cb_create(size_t size)
 	if (!this)
 		return (NULL);
 	this->size = (size == 0) ? CBUFFER_DEFAULT_SIZE : size;
-	this->head = 0;
-	this->tail = 0;
 	this->buffer = calloc(this->size, sizeof(char));
 	if (!this->buffer) {
 		free(this);
 		return (NULL);
 	}
+	this->full = false;
+	this->empty = true;
 	return (this);
 }
 

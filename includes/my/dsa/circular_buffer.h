@@ -25,6 +25,8 @@ typedef struct circular_buffer
 	size_t size;
 	size_t head;
 	size_t tail;
+	bool full;
+	bool empty;
 } circular_buffer_t;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +38,6 @@ bool cb_is_full(circular_buffer_t *this);
 bool cb_is_empty(circular_buffer_t *this);
 
 void cb_clear(circular_buffer_t *this);
-void cb_push(circular_buffer_t *this, char data);
+bool cb_push(circular_buffer_t *this, char data);
 char cb_pop(circular_buffer_t *this);
 char cb_peek(circular_buffer_t *this);

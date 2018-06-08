@@ -11,12 +11,25 @@ bool cb_is_full(circular_buffer_t *this)
 {
 	if (!this)
 		return (false);
-	return (this->head == (this->tail + 1) % this->size);
+	return (this->full);
 }
 
 bool cb_is_empty(circular_buffer_t *this)
 {
 	if (!this)
 		return (false);
-	return (this->head == this->tail);
+	return (this->empty);
 }
+
+
+
+
+/*
+
+                T   H
+[r] [l] [d] [!] [o] [ ] [W] [o]
+ 0   1   2   3   4   5   6   7
+
+
+
+*/

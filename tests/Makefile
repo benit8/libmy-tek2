@@ -18,7 +18,8 @@ OBJS	=	$(SRCS:.c=.o)
 #  Modules                                                                     #
 # ---------------------------------------------------------------------------- #
 
-IOS	=	ios/iss.c			\
+IOS	=	dsa/circular_buffer.c		\
+		ios/iss.c			\
 		ios/oss.c
 
 SRCS	+=	$(addprefix $(SRC_DIR),$(IOS))
