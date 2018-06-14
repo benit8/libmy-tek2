@@ -18,11 +18,12 @@ OBJS	=	$(SRCS:.c=.o)
 #  Modules                                                                     #
 # ---------------------------------------------------------------------------- #
 
-IOS	=	dsa/circular_buffer.c		\
+SOURCES	=	dsa/circular_buffer.c		\
 		ios/iss.c			\
-		ios/oss.c
+		ios/oss.c			\
+		regex.c
 
-SRCS	+=	$(addprefix $(SRC_DIR),$(IOS))
+SRCS	+=	$(addprefix $(SRC_DIR),$(SOURCES))
 
 
 ################################################################################
@@ -31,8 +32,8 @@ CFLAGS	+=	-g3
 CFLAGS	+=	-I../includes
 CFLAGS	+=	-W -Wall -Wextra
 
-LDFLAGS	+=	-L.. -lmy
 LDFLAGS	+=	-lcriterion
+LDFLAGS	+=	-L.. -lmy
 
 ################################################################################
 
@@ -51,6 +52,9 @@ CYAN	=	\033[1;36m
 ################################################################################
 
 all: $(NAME)
+
+debug: CFLAGS += -g3
+debug: all
 
 $(NAME): prebuild $(OBJS)
 	@ $(PRINT) "$(YELLOW)Building project binary$(RESET)\n"
@@ -73,6 +77,7 @@ fclean: clean
 	@ printf "$(GREEN)Done$(RESET)\n"
 
 re: fclean all
+de: fclean debug
 
 .c.o:
 	@ $(PRINT) "  [  ]  $(CYAN)%b$(RESET)\\r" $<
@@ -80,4 +85,4 @@ re: fclean all
 	  ($(PRINT) "  [$(GREEN)OK$(RESET)]  $(CYAN)%b$(RESET)\n" $<) || \
 	  ($(PRINT) "  [$(RED)XX$(RESET)]  $(CYAN)%b$(RESET)\n" $< ; exit 1)
 
-.PHONY: all $(NAME) prebuild clean fclean re .c.o
+.PHONY: all debug $(NAME) prebuild clean fclean re de .c.o
