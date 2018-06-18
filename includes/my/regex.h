@@ -15,12 +15,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "my/string.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ssize_t regex_match(const char *pattern, char *subject);
 char *regex_replace(const char *pattern, const char *repl, char *subject);
 char **regex_capture(const char *pattern, char *subject);
-char **regex_split(char *pattern, char *subject);
+char **regex_split(const char *pattern, char *subject);
 
 // Internal function; please do not use in your own code.
 bool regex_create(regex_t *regex, const char *pattern);

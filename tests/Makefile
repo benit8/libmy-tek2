@@ -21,7 +21,10 @@ OBJS	=	$(SRCS:.c=.o)
 SOURCES	=	dsa/circular_buffer.c		\
 		ios/iss.c			\
 		ios/oss.c			\
-		regex.c
+		regex/capture.c			\
+		regex/match.c			\
+		regex/replace.c			\
+		regex/split.c			\
 
 SRCS	+=	$(addprefix $(SRC_DIR),$(SOURCES))
 

@@ -7,18 +7,24 @@
 
 #include "my/regex.h"
 
-ssize_t regex_match(const char *pattern, char *subject)
+ssize_t regex_match(const char *pat, char *sbj)
 {
-	regex_t regex;
-	regmatch_t match;
+	regex_t reg;
+	regmatch_t mat = {0, 0};
 	ssize_t n = 0;
 
-	if (!pattern || !subject)
+	if (!pat || !sbj)
 		return (-1);
-	if (!regex_create(&regex, pattern))
+	if (!regex_create(&reg, pat))
 		return (-1);
-	for (n = 0; regexec(&regex, subject, 1, &match, 0) != REG_NOMATCH; ++n)
-		subject += match.rm_eo;
-	regfree(&regex);
+	while (*sbj && regexec(&reg, sbj, 1, &mat, 0) != REG_NOMATCH) {
+		if (mat.rm_so == 0 && mat.rm_eo == 0)
+			sbj++;
+		else {
+			sbj += mat.rm_eo;
+			++n;
+		}
+	}
+	regfree(&reg);
 	return (n);
 }

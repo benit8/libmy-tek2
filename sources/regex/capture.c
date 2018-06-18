@@ -7,40 +7,54 @@
 
 #include "my/regex.h"
 
-static bool append(char ***oldp, size_t *n, char **sp, regmatch_t *match)
+static bool append(char ***oldp, size_t *n, char **subjp, regmatch_t *match)
 {
-	size_t spanlen = 0;
 	char **new = realloc(*oldp, sizeof(char *) * ((*n) + 2));
 
 	if (!new)
 		return (false);
-	spanlen = match->rm_eo - match->rm_so;
-	new[*n] = strndup(*sp + match->rm_so, spanlen);
-	if (new[*n] == NULL)
+	new[*n] = strndup(*subjp + match->rm_so, match->rm_eo - match->rm_so);
+	if (!new[*n])
 		return (false);
+	new[(*n) + 1] = NULL;
 	*oldp = new;
 	(*n)++;
-	*sp += match->rm_eo;
 	return (true);
 }
 
-char **regex_capture(const char *pattern, char *subject)
+static void capture_loop(regex_t *reg, char *sbj, char ***array)
 {
-	regex_t regex;
-	regmatch_t match;
+	regmatch_t mat = {0, 0};
 	size_t n = 0;
+
+	while (*sbj && regexec(reg, sbj, 1, &mat, 0) != REG_NOMATCH) {
+		if (mat.rm_so == 0 && mat.rm_eo == 0) {
+			sbj++;
+			continue;
+		}
+		if (!append(array, &n, &sbj, &mat)) {
+			regfree(reg);
+			return;
+		}
+		sbj += mat.rm_eo;
+	}
+}
+
+char **regex_capture(const char *pat, char *sbj)
+{
+	regex_t reg;
 	char **array = NULL;
 
-	if (!pattern || !subject)
+	if (!pat || !sbj)
 		return (NULL);
-	if (!regex_create(&regex, pattern))
+	if (!regex_create(&reg, pat))
 		return (NULL);
-	while (regexec(&regex, subject, 1, &match, 0) != REG_NOMATCH) {
-		if (!append(&array, &n, &subject, &match)) {
-			regfree(&regex);
-			return (array);
-		}
+	array = calloc(1, sizeof(char *));
+	if (!array) {
+		regfree(&reg);
+		return (NULL);
 	}
-	regfree(&regex);
+	capture_loop(&reg, sbj, &array);
+	regfree(&reg);
 	return (array);
 }
