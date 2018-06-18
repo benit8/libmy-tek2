@@ -7,26 +7,46 @@
 
 #include "my/regex.h"
 
-char *regex_replace(const char *p, const char *rp, char *s)
+static void replace_loop(regex_t *reg, FILE *ss, char *sbj, const char *rep)
 {
-	regex_t r;
-	regmatch_t m;
+	regmatch_t mat = {0, 0};
+
+	while (*sbj && regexec(reg, sbj, 1, &mat, 0) != REG_NOMATCH) {
+		if (mat.rm_so == 0 && mat.rm_eo == 0) {
+			sbj++;
+			continue;
+		}
+		fprintf(ss, "%.*s%s", mat.rm_so, sbj, rep);
+		sbj += mat.rm_eo;
+	}
+	fprintf(ss, sbj);
+	fflush(ss);
+}
+
+static bool prepare_regex(FILE *ss, const char *pat, const char *rep, char *sbj)
+{
+	regex_t reg;
+
+	if (!regex_create(&reg, pat))
+		return (false);
+	replace_loop(&reg, ss, sbj, rep);
+	regfree(&reg);
+	return (true);
+}
+
+char *regex_replace(const char *pat, const char *rep, char *sbj)
+{
+	bool ret = false;
 	size_t size = 0;
 	char *str = NULL;
-	FILE *ss = open_memstream(&str, &size);
+	FILE *ss = NULL;
 
+	if ((!pat || !rep) || !sbj)
+		return (NULL);
+	ss = open_memstream(&str, &size);
 	if (!ss)
 		return (NULL);
-	if (!regex_create(&r, p)) {
-		fclose(ss);
-		return (NULL);
-	}
-	for (; regexec(&r, s, 1, &m, 0) != REG_NOMATCH; s += m.rm_eo) {
-		fwrite(s, 1, m.rm_so, ss);
-		fwrite(rp, 1, strlen(rp), ss);
-	}
-	regfree(&r);
-	fwrite(s, 1, strlen(s), ss);
+	ret = prepare_regex(ss, pat, rep, sbj);
 	fclose(ss);
-	return (str);
+	return (ret ? str : NULL);
 }
