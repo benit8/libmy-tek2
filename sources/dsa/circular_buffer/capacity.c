@@ -20,16 +20,3 @@ bool cb_is_empty(circular_buffer_t *this)
 		return (false);
 	return (this->empty);
 }
-
-
-
-
-/*
-
-                T   H
-[r] [l] [d] [!] [o] [ ] [W] [o]
- 0   1   2   3   4   5   6   7
-
-
-
-*/

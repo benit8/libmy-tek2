@@ -41,3 +41,6 @@ void cb_clear(circular_buffer_t *this);
 bool cb_push(circular_buffer_t *this, char data);
 char cb_pop(circular_buffer_t *this);
 char cb_peek(circular_buffer_t *this);
+
+bool cb_push_string(circular_buffer_t *this, char *string);
+char *cb_get_line(circular_buffer_t *this);
