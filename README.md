@@ -1,3 +1,3 @@
 # libmy
 C Library with useful stuff
-but without recoded function
+but without recoded functions
