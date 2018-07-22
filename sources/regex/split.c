@@ -31,7 +31,6 @@ static void split_loop(regex_t *reg, char *sbj, char ***array)
 	size_t n = 0;
 
 	while (*sbj && regexec(reg, sbj, 1, &mat, 0) != REG_NOMATCH) {
-		printf("match: [%d,%d] '%*.s'\n", mat.rm_so, mat.rm_eo, mat.rm_so - mat.rm_eo, sbj);
 		if (mat.rm_so == 0 && mat.rm_eo == 0) {
 			sbj++;
 			continue;
