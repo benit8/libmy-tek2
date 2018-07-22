@@ -5,11 +5,15 @@
 ## Makefile utils
 ##
 
+NAME	?=	a.out
+PROJECT	?=	$(NAME)
+
 SRC_DIR	?=	src/
+SRCS	?=	main.c
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	+=	-Iincludes
+CFLAGS	+=	-Iinclude
 CFLAGS	+=	-W -Wall -Wextra
 
 LDFLAGS	+=	-lm
