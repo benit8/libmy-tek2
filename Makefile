@@ -91,12 +91,12 @@ String	=	string/explode.c					\
 		string/str_trim.c
 
 
-SRCS	+=	$(addprefix $(SRC_DIR),$(DSA))
-SRCS	+=	$(addprefix $(SRC_DIR),$(FS))
-SRCS	+=	$(addprefix $(SRC_DIR),$(IOS))
-SRCS	+=	$(addprefix $(SRC_DIR),$(Log))
-SRCS	+=	$(addprefix $(SRC_DIR),$(Regex))
-SRCS	+=	$(addprefix $(SRC_DIR),$(String))
+SOURCES	+=	$(DSA)
+SOURCES	+=	$(FS)
+SOURCES	+=	$(IOS)
+SOURCES	+=	$(Log)
+SOURCES	+=	$(Regex)
+SOURCES	+=	$(String)
 
 
 ################################################################################

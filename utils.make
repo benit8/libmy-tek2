@@ -11,10 +11,13 @@ PROJECT	?=	$(NAME)
 SRC_DIR	?=	src/
 SRCS	?=	main.c
 
+SRCS	=	$(addprefix $(SRC_DIR),$(SOURCES))
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	+=	-Iinclude
+################################################################################
+
 CFLAGS	+=	-W -Wall -Wextra
+CFLAGS	+=	-Iinclude
 
 LDFLAGS	+=	-lm
 
@@ -22,6 +25,8 @@ LDFLAGS	+=	-lm
 
 SHELL	=	/bin/bash
 PRINT	=	printf "$(PROJECT):\t" ; printf
+RM	=	rm -f
+CC	=	gcc
 
 RESET	=	\033[0m
 RED	=	\033[0;31m
