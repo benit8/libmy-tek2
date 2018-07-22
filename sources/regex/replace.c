@@ -16,7 +16,7 @@ static void replace_loop(regex_t *reg, FILE *ss, char *sbj, const char *rep)
 			sbj++;
 			continue;
 		}
-		fprintf(ss, "%.*s%s", mat.rm_so, sbj, rep);
+		fprintf(ss, "%.*s%s", (int)mat.rm_so, sbj, rep);
 		sbj += mat.rm_eo;
 	}
 	fprintf(ss, sbj);
