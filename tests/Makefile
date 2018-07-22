@@ -8,7 +8,7 @@
 PROJECT	=	Libmy UT
 NAME	=	tests
 
-SRC_DIR	=	sources/
+SRC_DIR	=	src/
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -32,7 +32,7 @@ SRCS	+=	$(addprefix $(SRC_DIR),$(SOURCES))
 ################################################################################
 
 CFLAGS	+=	-g3
-CFLAGS	+=	-I../includes
+CFLAGS	+=	-I../include
 CFLAGS	+=	-W -Wall -Wextra
 
 LDFLAGS	+=	-lcriterion
