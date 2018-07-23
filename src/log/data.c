@@ -9,7 +9,7 @@
 
 log_data_t *log_get_internal_data(void)
 {
-	static log_data_t data = {NULL, LL_WARN, STDERR_FILENO};
+	static log_data_t data = {LL_WARN, STDERR_FILENO};
 
 	return (&data);
 }

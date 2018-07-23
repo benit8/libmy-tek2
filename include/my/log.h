@@ -34,7 +34,6 @@ typedef enum log_level
 
 typedef struct log_data
 {
-	const char *program_name;
 	log_level_t level;
 	int fd;
 } log_data_t;
@@ -48,9 +47,6 @@ typedef struct log_infos
 ////////////////////////////////////////////////////////////////////////////////
 
 log_data_t *log_get_internal_data(void);
-
-const char *log_get_program_name(void);
-void log_set_program_name(const char *program_name);
 
 void log_set_level(log_level_t level);
 log_level_t log_get_level(void);

@@ -72,7 +72,6 @@ Log	=	log/data.c						\
 		log/file.c						\
 		log/level.c						\
 		log/loggers.c						\
-		log/program_name.c					\
 		log/write.c
 
 Regex	=	regex/capture.c						\
