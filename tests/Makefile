@@ -19,6 +19,7 @@ OBJS	=	$(SRCS:.c=.o)
 # ---------------------------------------------------------------------------- #
 
 SOURCES	=	dsa/circular_buffer.c		\
+		dsa/vector.c			\
 		ios/iss.c			\
 		ios/oss.c			\
 		regex/capture.c			\
