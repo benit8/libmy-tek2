@@ -66,3 +66,7 @@ void log_info(const char *format, ...)
 	__attribute__((__format__(__printf__, 1, 2)));
 void log_debug(const char *format, ...)
 	__attribute__((__format__(__printf__, 1, 2)));
+
+////////////////////////////////////////////////////////////////////////////////
+
+extern char *__progname;

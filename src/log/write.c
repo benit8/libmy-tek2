@@ -42,7 +42,7 @@ void log_write(const char *format, va_list *ap, log_level_t level)
 	if (data->fd < 3)
 		dprintf(data->fd, RESET);
 	dprintf(data->fd, " ");
-	dprintf(data->fd, "%s: ", getprogname());
+	dprintf(data->fd, "%s: ", __progname);
 	vdprintf(data->fd, format, *ap);
 	dprintf(data->fd, "\n");
 }
