@@ -37,7 +37,7 @@ void vector_reserve(vector_t *this, size_t new_cap)
 		return;
 	if (new_cap <= this->capacity)
 		return;
-	goal = MIN(VECTOR_MIN_SIZE, this->capacity);
+	goal = MAX(VECTOR_MIN_SIZE, this->capacity);
 	for (; goal < new_cap; goal *= VECTOR_GROTH_FACTOR);
 	new = calloc(goal, sizeof(ptr_t));
 	if (!new)

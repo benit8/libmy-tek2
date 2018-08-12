@@ -55,23 +55,18 @@ void vector_erase(vector_t *this, size_t pos)
 	this->size--;
 }
 
-// [6, 8, 9, 2, 3, 1, 0, 0]
-// size: 8
-// capa: 8
-
 void vector_resize(vector_t *this, size_t size)
 {
 	if (!this)
 		return;
 	if (size == this->size)
 		return;
-	else if (size < this->size) {
-		for (size_t i = size; i < this->size; ++i) {
-			if (this->clean_up)
-				this->clean_up(this->data[i]);
-		}
+	else if (size > this->size) {
+		vector_reserve(this, size);
+		return;
 	}
-	else {
-		// insert until `size` is reached
+	for (size_t i = size; i < this->size; ++i) {
+		if (this->clean_up)
+			this->clean_up(this->data[i]);
 	}
 }
