@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** list.h
+** dsa / list.h
 */
 
 #pragma once
@@ -12,7 +12,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "my/dsa/dsa_types.h"
+#include "_types.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 

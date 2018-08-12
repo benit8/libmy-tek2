@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy-tek2
+** libmy
 ** File description:
 ** dsa / circular_buffer.h
 */
@@ -15,7 +15,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define CBUFFER_DEFAULT_SIZE 512
+#define CBUFFER_DEFAULT_SIZE	512
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -32,15 +32,15 @@ typedef struct circular_buffer
 ////////////////////////////////////////////////////////////////////////////////
 
 circular_buffer_t *cb_create(size_t size);
-void cb_destroy(circular_buffer_t *this);
+void cb_destroy(circular_buffer_t *cb);
 
-bool cb_is_full(circular_buffer_t *this);
-bool cb_is_empty(circular_buffer_t *this);
+bool cb_is_full(circular_buffer_t *cb);
+bool cb_is_empty(circular_buffer_t *cb);
 
-void cb_clear(circular_buffer_t *this);
-bool cb_push(circular_buffer_t *this, char data);
-char cb_pop(circular_buffer_t *this);
-char cb_peek(circular_buffer_t *this);
+void cb_clear(circular_buffer_t *cb);
+bool cb_push(circular_buffer_t *cb, char data);
+char cb_pop(circular_buffer_t *cb);
+char cb_peek(circular_buffer_t *cb);
 
-bool cb_push_string(circular_buffer_t *this, char *string);
-char *cb_get_line(circular_buffer_t *this);
+bool cb_push_string(circular_buffer_t *cb, char *string);
+char *cb_get_line(circular_buffer_t *cb);

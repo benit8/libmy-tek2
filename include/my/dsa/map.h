@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** map.h
+** dsa / map.h
 */
 
 #pragma once
@@ -13,8 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "my/dsa/dsa_types.h"
-#include "my/dsa/list.h"
+#include "_types.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 

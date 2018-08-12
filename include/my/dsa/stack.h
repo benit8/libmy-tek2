@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** stack.h
+** dsa / stack.h
 */
 
 #pragma once
@@ -12,8 +12,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "my/dsa/dsa_types.h"
-#include "my/dsa/list.h"
+#include "_types.h"
+#include "list.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 

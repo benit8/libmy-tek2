@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** dsa_types.h
+** dsa / _types.h
 */
 
 #pragma once
