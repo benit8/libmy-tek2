@@ -12,7 +12,11 @@ NAME	=	libmy.a
 #  Modules                                                                     #
 # ---------------------------------------------------------------------------- #
 
-DSA	=	dsa/circular_buffer/capacity.c				\
+DSA	=	dsa/vector/access.c					\
+		dsa/vector/capacity.c					\
+		dsa/vector/modifiers.c					\
+		dsa/vector/vector.c					\
+		dsa/circular_buffer/capacity.c				\
 		dsa/circular_buffer/circular_buffer.c			\
 		dsa/circular_buffer/modifiers.c				\
 		dsa/circular_buffer/modifiers_advanced.c		\
@@ -34,7 +38,8 @@ DSA	=	dsa/circular_buffer/capacity.c				\
 		dsa/stack/access.c					\
 		dsa/stack/capacity.c					\
 		dsa/stack/modifiers.c					\
-		dsa/stack/stack.c
+		dsa/stack/stack.c					\
+
 
 FS	=	fs/file_get_contents.c					\
 		fs/file_get_lines.c					\
