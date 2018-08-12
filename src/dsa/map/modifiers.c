@@ -82,7 +82,7 @@ void map_clear(map_t *map)
 	for (map_node_t *curr = map->head; curr != NULL; curr = next) {
 		next = curr->next;
 		if (map->clean_up)
-			(*map->clean_up)(curr->data);
+			map->clean_up(curr->data);
 		free(curr->key);
 		free(curr);
 	}

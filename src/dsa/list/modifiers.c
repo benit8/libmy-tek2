@@ -83,7 +83,7 @@ void list_clear(list_t *this)
 	for (list_node_t *curr = this->head; curr != NULL; curr = next) {
 		next = curr->next;
 		if (this->clean_up)
-			(this->clean_up)(curr->data);
+			this->clean_up(curr->data);
 		free(curr);
 	}
 	this->head = NULL;
