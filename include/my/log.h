@@ -17,7 +17,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "my/term_colors.h"
+#include "term_colors.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
