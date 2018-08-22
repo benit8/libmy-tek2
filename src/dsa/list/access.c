@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** access.c
+** dsa / list / access.c
 */
 
 #include "my/dsa/list.h"
@@ -24,9 +24,12 @@ void *list_at(list_t *this, size_t at)
 
 void *list_back(list_t *this)
 {
-	if (!this || !this->rear)
+	list_node_t *it = NULL;
+
+	if (!this)
 		return (NULL);
-	return (this->rear->data);
+	for (it = this->head; it->next; it = it->next);
+	return (it->data);
 }
 
 void *list_front(list_t *this)

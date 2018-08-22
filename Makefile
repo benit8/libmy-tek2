@@ -20,8 +20,9 @@ DSA	=	dsa/circular_buffer/capacity.c				\
 		dsa/list/capacity.c					\
 		dsa/list/list.c						\
 		dsa/list/modifiers.c					\
-		dsa/list/modifiers_pushpop.c				\
+		dsa/list/pushpop.c					\
 		dsa/list/operations.c					\
+		dsa/list/sort.c						\
 		dsa/map/access.c					\
 		dsa/map/capacity.c					\
 		dsa/map/map.c						\

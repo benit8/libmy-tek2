@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** modifiers.c
+** dsa / list / modifiers.c
 */
 
 #include "my/dsa/list.h"
@@ -17,9 +17,7 @@ static bool list_create_insert_node(void *data, list_node_t *prev,
 		return (false);
 	new->data = data;
 	new->next = next;
-	new->prev = prev;
 	prev->next = new;
-	next->prev = new;
 	return (true);
 }
 
@@ -43,33 +41,25 @@ bool list_insert(list_t *this, size_t pos, void *data)
 	return (false);
 }
 
-static void erase_with(list_t *this, void *(*getter)(list_t *))
-{
-	void *data = getter(this);
-
-	if (this->clean_up)
-		this->clean_up(data);
-}
-
 void list_erase(list_t *this, size_t pos)
 {
-	list_node_t *cur = NULL;
+	list_node_t *it = NULL;
 	list_node_t *to_del = NULL;
 
-	if ((!this) || (!this->head) || (pos > list_get_size(this)))
+	if (!this)
+		return;
+	else if (!this->head || pos >= list_get_size(this))
 		return;
 	if (pos == 0)
-		erase_with(this, list_pop_front);
+		this->clean_up(list_pop_front(this));
 	else if (pos == list_get_size(this) - 1)
-		erase_with(this, list_pop_back);
+		this->clean_up(list_pop_back(this));
 	else {
-		cur = this->head;
-		for (size_t i = 0; i < pos - 1; ++i, cur = cur->next);
-		to_del = cur->next;
-		cur->next = to_del->next;
-		to_del->next->prev = cur;
-		if (this->clean_up)
-			(this->clean_up)(to_del->data);
+		it = this->head;
+		for (size_t i = 0; i < pos - 1; ++i, it = it->next);
+		to_del = it->next;
+		it->next = to_del->next;
+		this->clean_up(to_del->data);
 		free(to_del);
 	}
 }
@@ -82,10 +72,8 @@ void list_clear(list_t *this)
 		return;
 	for (list_node_t *curr = this->head; curr != NULL; curr = next) {
 		next = curr->next;
-		if (this->clean_up)
-			this->clean_up(curr->data);
+		this->clean_up(curr->data);
 		free(curr);
 	}
 	this->head = NULL;
-	this->rear = NULL;
 }

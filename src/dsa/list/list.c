@@ -2,19 +2,22 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** list.c
+** dsa / list / list.c
 */
 
 #include "my/dsa/list.h"
+
+static void dummy_clean_up(void *data)
+{
+	(void)data;
+}
 
 list_t *list_create(clean_func_t *clean_up)
 {
 	list_t *this = calloc(1, sizeof(list_t));
 
 	if (this) {
-		this->head = NULL;
-		this->rear = NULL;
-		this->clean_up = clean_up;
+		this->clean_up = (clean_up ? clean_up : dummy_clean_up);
 	}
 	return (this);
 }
