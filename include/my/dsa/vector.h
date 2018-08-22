@@ -26,7 +26,7 @@
 
 typedef struct vector
 {
-	ptr_t **data;
+	ptr_t *data;
 	size_t size;
 	size_t capacity;
 	clean_func_t *clean_up;
