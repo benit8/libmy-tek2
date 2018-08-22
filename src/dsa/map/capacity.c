@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** capacity.c
+** dsa / map / capacity.c
 */
 
 #include "my/dsa/map.h"

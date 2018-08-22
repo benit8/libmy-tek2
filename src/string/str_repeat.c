@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** str_repeat.c
+** string / str_repeat.c
 */
 
 #include "my/string.h"

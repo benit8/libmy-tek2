@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** get.c
+** dsa / stack / capacity.c
 */
 
 #include "my/dsa/stack.h"

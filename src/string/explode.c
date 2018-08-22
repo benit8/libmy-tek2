@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** explode.c
+** string / explode.c
 */
 
 #include "my/string.h"

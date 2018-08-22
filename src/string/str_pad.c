@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** strpad.c
+** string / str_pad.c
 */
 
 #include "my/string.h"

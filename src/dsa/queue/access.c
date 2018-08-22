@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** access.c
+** dsa / queue / access.c
 */
 
 #include "my/dsa/queue.h"

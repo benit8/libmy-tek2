@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** implode.c
+** string / implode.c
 */
 
 #include "my/string.h"

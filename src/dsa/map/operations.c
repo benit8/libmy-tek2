@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** foreach.c
+** dsa / map / operations.c
 */
 
 #include "my/dsa/map.h"

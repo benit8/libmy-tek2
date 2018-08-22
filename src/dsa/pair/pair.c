@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** pair.c
+** dsa / pair / pair.c
 */
 
 #include "my/dsa/pair.h"

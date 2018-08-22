@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** modifiers.c
+** dsa / queue / modifiers.c
 */
 
 #include "my/dsa/queue.h"

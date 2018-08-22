@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** str_tolower.c
+** string / str_tolower.c
 */
 
 #include "my/string.h"

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** queue.c
+** dsa / queue / queue.c
 */
 
 #include "my/dsa/queue.h"

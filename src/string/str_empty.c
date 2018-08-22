@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** my_strempty.c
+** string / str_empty.c
 */
 
 #include "my/string.h"

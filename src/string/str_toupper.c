@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** str_toupper.c
+** string / str_toupper.c
 */
 
 #include "my/string.h"

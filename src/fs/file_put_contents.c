@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** file_put_contents.c
+** fs / file_put_contents.c
 */
 
 #include "my/fs.h"

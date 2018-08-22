@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** str_trim.c
+** string / str_trim.c
 */
 
 #include "my/string.h"

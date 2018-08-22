@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** modifiers.c
+** dsa / map / modifiers.c
 */
 
 #include "my/dsa/map.h"

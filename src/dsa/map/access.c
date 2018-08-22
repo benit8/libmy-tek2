@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** get.c
+** dsa / map / access.c
 */
 
 #include "my/dsa/map.h"

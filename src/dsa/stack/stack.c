@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** stack.c
+** dsa / stack / stack.c
 */
 
 #include "my/dsa/stack.h"

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** libmy
 ** File description:
-** is_file.c
+** fs / is_file.c
 */
 
 #include "my/fs.h"
