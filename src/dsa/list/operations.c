@@ -27,7 +27,7 @@ static list_node_t *merge(list_node_t **a, list_node_t **b, comp_func_t *cmp)
 
 void list_merge(list_t *this, list_t *other, comp_func_t *cmp)
 {
-	if (!this || !other)
+	if (!this || !other || *cmp)
 		return;
 	this->head = merge(&this->head, &other->head, cmp);
 }
