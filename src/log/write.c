@@ -19,11 +19,11 @@ static const log_infos_t infos[] = {
 
 static char *get_formatted_time(void)
 {
-	static char buff[64];
-	time_t now = time(NULL);
-	struct tm *info = localtime(&now);
+	static char buff[32];
+	time_t t = time(NULL);
+	struct tm *lt = localtime(&t);
 
-	strftime(buff, 64, "%x %X", info);
+	buff[strftime(buff, sizeof(buff), "%x %X", lt)] = '\0';
 	return (buff);
 }
 
